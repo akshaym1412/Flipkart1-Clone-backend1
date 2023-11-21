@@ -33,7 +33,7 @@ app.get('*',function(_, res){
 app.get("/api/getkey",(req,res)=>{
     return res.status(200).json({key:process.env.KEY})
 })
-const port=process.env.PORT||7000;
+const port=process.env.PORT||8000;
 const Username=process.env.DB_Username;
 const Password=process.env.DB_Password;
 app.listen(port,()=>{

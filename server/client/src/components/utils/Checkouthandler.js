@@ -1,9 +1,9 @@
 import axios from "axios";
 export const checkoutHandler = async (amount) => {
 
-    const { data: { key } } = await axios.get("http://www.localhost:8000/api/getkey")
+    const { data: { key } } = await axios.get("/api/getkey")
 
-    const { data: { order } } = await axios.post(" http://www.localhost:8000/checkout", {
+    const { data: { order } } = await axios.post(" /checkout", {
         amount
     })
 
@@ -15,7 +15,7 @@ export const checkoutHandler = async (amount) => {
         description: "Tutorial of RazorPay",
         image: "https://avatars.githubusercontent.com/u/25058652?v=4",
         order_id: order.id,
-        callback_url: " http://www.localhost:8000/paymentverification",
+        callback_url: " /paymentverification",
         prefill: {
             name: "Gaurav Kumar",
             email: "gaurav.kumar@example.com",
