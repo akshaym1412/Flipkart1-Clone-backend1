@@ -13,9 +13,17 @@ export const instance = new razorpay({
     key_secret: process.env.SECRET,
   });
 app.use(json());
-app.use(cors());
+app.use(cors(
+    {
+        origin:[""],
+        methods:["POST","GET"],
+        credentials:true
+    }
+));
 app.use(express.urlencoded({extended:true}));
 app.use("/",route)
+
+
 
 app.get("/api/getkey",(req,res)=>{
     return res.status(200).json({key:process.env.KEY})
