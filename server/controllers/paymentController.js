@@ -38,7 +38,7 @@ export const paymentVerification = async (req, res) => {
     });
 
     res.redirect(
-      `https://flipkart1-clone1.vercel.app//paymentsuccess?reference=${razorpay_payment_id}`
+      `/paymentsuccess?reference=${razorpay_payment_id}`
     );
   } else {
     res.status(400).json({
