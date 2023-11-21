@@ -3,7 +3,7 @@ export const checkoutHandler = async (amount) => {
 
     const { data: { key } } = await axios.get("http://www.localhost:8000/api/getkey")
 
-    const { data: { order } } = await axios.post("http://localhost:8000/checkout", {
+    const { data: { order } } = await axios.post(" https://flipkart1-clone.vercel.app/checkout", {
         amount
     })
 
@@ -15,7 +15,7 @@ export const checkoutHandler = async (amount) => {
         description: "Tutorial of RazorPay",
         image: "https://avatars.githubusercontent.com/u/25058652?v=4",
         order_id: order.id,
-        callback_url: "http://localhost:8000/paymentverification",
+        callback_url: " https://flipkart1-clone.vercel.app/paymentverification",
         prefill: {
             name: "Gaurav Kumar",
             email: "gaurav.kumar@example.com",
