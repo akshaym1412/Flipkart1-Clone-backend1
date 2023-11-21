@@ -8,10 +8,10 @@ import razorpay from "razorpay";
 
 dotenv.config();
 const app=express();
-export const instance = new razorpay({
-    key_id: process.env.KEY,
-    key_secret: process.env.SECRET,
-  });
+// export const instance = new razorpay({
+//     key_id: process.env.KEY,
+//     key_secret: process.env.SECRET,
+//   });
 app.use(json());
 app.use(cors);
 app.use(express.urlencoded({extended:true}));

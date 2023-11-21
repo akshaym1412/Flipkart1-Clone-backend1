@@ -1,16 +1,9 @@
 import { Router } from "express";
 import User from "../database/UserSchema.js";
-import dotenv from "dotenv";
 import productsSchema from "../database/ProductsSchema.js";
 import cartSchema from "../database/CartSchema.js";
-import razorpay from "razorpay";
 import { checkout,paymentVerification } from "../controllers/paymentController.js";
 
-dotenv.config();
-const instance = new razorpay({
-    key_id:process.env.KEY,
-    key_secret:process.env.SECRET,
-})
 const route=Router();
 
 route.post('/login',async(req,res)=>{
@@ -71,8 +64,8 @@ route.delete("/remove/:id",async(req,res)=>{
     res.status(200).json(data)
 })
 
-route.post("/checkout",checkout);
+// route.post("/checkout",checkout);
 
-route.post("/paymentverification",paymentVerification)
+// route.post("/paymentverification",paymentVerification)
 
  export default route;
