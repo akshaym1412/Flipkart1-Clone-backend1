@@ -37,12 +37,12 @@
 //       razorpay_signature,
 //     });
 
-//     res.redirect(
-//       `https://flipkart1-clone1.vercel.app//paymentsuccess?reference=${razorpay_payment_id}`
-//     );
-//   } else {
-//     res.status(400).json({
-//       success: false,
-//     });
-//   }
-// };
+    res.redirect(
+      `http://localhost:3000/paymentsuccess?reference=${razorpay_payment_id}`
+    );
+  } else {
+    res.status(400).json({
+      success: false,
+    });
+  }
+};
