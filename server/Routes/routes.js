@@ -64,8 +64,8 @@ route.delete("/remove/:id",async(req,res)=>{
     res.status(200).json(data)
 })
 
-// route.post("/checkout",checkout);
+route.post("/checkout",checkout);
 
-// route.post("/paymentverification",paymentVerification)
+route.post("/paymentverification",paymentVerification)
 
  export default route;

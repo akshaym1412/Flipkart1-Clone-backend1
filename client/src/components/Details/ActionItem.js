@@ -4,7 +4,7 @@ import { ShoppingCart as Cart, FlashOn as Flash } from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
 import {add} from '../Redux/Slice3';
 import { useNavigate } from 'react-router-dom';
-// import { checkoutHandler } from '../utils/Checkouthandler';
+import { checkoutHandler } from '../utils/Checkouthandler';
 
 const LeftContainer=styled(Box)(({theme})=>({
 display:"flex",
@@ -56,7 +56,7 @@ export const ActionItem = ({users}) => {
         </Imagediv>
         <Addcart>
         <Button variant='contained' sx={{width:"225px",minWidth:"150px",height:"50px",backgroundColor:"orange"}} onClick={()=>(handleClick(users))}><Cart/>Add to Cart</Button>
-        <Button variant='contained' sx={{width:"225px",minWidth:"150px",marginLeft:"40px",backgroundColor:"red"}} ><Flash style={{marginTop:"10px"} } />Buy Now</Button>
+        <Button variant='contained' sx={{width:"225px",minWidth:"150px",marginLeft:"40px",backgroundColor:"red"}} onClick={()=>checkoutHandler(users.newPrice)}><Flash style={{marginTop:"10px"} } />Buy Now</Button>
         </Addcart>
     </LeftContainer>
     }
