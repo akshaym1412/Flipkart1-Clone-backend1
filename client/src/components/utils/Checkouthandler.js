@@ -1,5 +1,5 @@
 import axios from "axios";
-export const checkoutHandler = async (amount) => {
+export const checkoutHandler = async (amount,Name) => {
 
     const { data: { key } } = await axios.get("/api/getkey")
 
@@ -11,7 +11,7 @@ export const checkoutHandler = async (amount) => {
         key,
         amount: order.amount,
         currency: "INR",
-        name: "6 Pack Programmer",
+        name: Name,
         description: "Tutorial of RazorPay",
         image: "https://avatars.githubusercontent.com/u/25058652?v=4",
         order_id: order.id,

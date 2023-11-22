@@ -7,6 +7,8 @@ import Totalamt from './Totalamt';
 import { remove } from '../Redux/Slice3';
 import EmptyCart from './EmptyCart';
 import { checkoutHandler } from '../utils/Checkouthandler';
+import { DataContext } from '../../App';
+import { useContext } from 'react';
 
 
 const Main=styled(Box)(({theme})=>({
@@ -123,12 +125,22 @@ const StyledButton = styled(Button)(({theme})=>({
         }
     }))
 const Cartdetails = () => {
+const {accounts}=useContext(DataContext)
 const fassured = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png';
 const {cart,price,discount,totalquantity,totalprice}=useSelector(state=>state.carts);
 const dispatch=useDispatch();
 const date = new Date(new Date().getTime()+(5*24*60*60*1000));
 const handleRemove=(id)=>{
   dispatch(remove(id));
+}
+const handleorder=(price)=>{
+    if(accounts===""){
+        alert("Please login or sigup to place oerder")
+    }
+    else{
+        checkoutHandler(price,accounts)
+    }
+    
 }
 
   return (
@@ -178,7 +190,7 @@ const handleRemove=(id)=>{
              
             </Imagebox>
             <Bottom>
-            <StyledButton variant="contained" onClick={()=>checkoutHandler(totalprice)}>Place Order</StyledButton>
+            <StyledButton variant="contained" onClick={()=>handleorder(totalprice)}>Place Order</StyledButton>
             </Bottom>
             </Box>
             <Side>
