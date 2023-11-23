@@ -24,7 +24,7 @@ route.post('/login',async(req,res)=>{
 route.post("/signup",async(req,res)=>{
     const data= await new User(req.body);
     const{Mobile,Email}=data;
-    const exist=await User.find({Mobile:Mobile,Email:Email})
+    const exist=await User.findone({Mobile:Mobile}&&{Email:Email})
     if(!exist){
         data.save();
         res.json({
