@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import connection from './database/db.js';
 import route from './Routes/routes.js';
 import cors from 'cors';
+import productsSchema from "../database/ProductsSchema.js";
 import defalutdata from './default.js';
 import razorpay from "razorpay";
 // import path from 'path';
