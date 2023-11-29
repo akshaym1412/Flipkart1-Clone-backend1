@@ -3,13 +3,9 @@ import dotenv from 'dotenv';
 import connection from './database/db.js';
 import route from './Routes/routes.js';
 import cors from 'cors';
-import productsSchema from "../database/ProductsSchema.js";
+import productsSchema from "./database/ProductsSchema.js";
 import defalutdata from './default.js';
 import razorpay from "razorpay";
-// import path from 'path';
-
-// const __dirname=path.resolve();
-
 dotenv.config();
 const app=express();
 export const instance = new razorpay({
@@ -20,15 +16,6 @@ app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({extended:true}));
 app.use("/api",route)
-
-// app.use(express.static(path.join(__dirname,"./client/build")));
-
-// app.get('*',function(_, res){
-//     res.sendFile(path.join(__dirname,"./client/build/index.html"),function(err){
-//         res.status(500).send(err)
-//     })
-// })
-
 
 
 app.get("/api/getkey",(req,res)=>{
