@@ -16,10 +16,10 @@ export const instance = new razorpay({
     key_id: process.env.KEY,
     key_secret: process.env.SECRET,
   });
-app.use(json());
+app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({extended:true}));
-app.use("/",route)
+app.use("/api",route)
 
 // app.use(express.static(path.join(__dirname,"./client/build")));
 
