@@ -33,6 +33,18 @@ app.use("/",route)
 app.get("/api/getkey",(req,res)=>{
     return res.status(200).json({key:process.env.KEY})
 })
+app.get("/api/products",async(req,res)=>{
+try{
+const data=await productsSchema.find({})
+if(!data){
+ return res.status(404).json({msg: "User data not found"});
+}
+res.status(200).json(data)
+} catch(error){
+    res.status(500).json({error: error});
+}
+}
+)
 const port=process.env.PORT||8000;
 const Username=process.env.DB_Username;
 const Password=process.env.DB_Password;
