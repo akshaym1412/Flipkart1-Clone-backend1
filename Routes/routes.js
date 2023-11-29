@@ -35,19 +35,6 @@ route.post("/signup",async(req,res)=>{
        res.json("User exist");
 }})
 
-route.get("/products",async(req,res)=>{
-try{
-const data=await productsSchema.find({})
-if(!data){
- return res.status(404).json({msg: "User data not found"});
-}
-res.status(200).json(data)
-} catch(error){
-    res.status(500).json({error: error});
-}
-}
-)
-
 route.get("/product/:id",async(req,res)=>{
 const {id}=req.params;
 const data=await productsSchema.findOne({'id':id})
