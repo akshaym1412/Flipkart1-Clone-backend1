@@ -1,10 +1,8 @@
 import express, { json } from 'express';
 import dotenv from 'dotenv';
-import connection from './database/db.js';
 import route from './Routes/routes.js';
 import cors from 'cors';
-import productsSchema from "./database/ProductsSchema.js";
-import defalutdata from './default.js';
+import "./database/db.js"
 import razorpay from "razorpay";
 dotenv.config();
 const app=express();
@@ -23,10 +21,7 @@ app.get("/api/getkey",(req,res)=>{
 })
 
 const port=process.env.PORT||8000;
-const Username=process.env.DB_Username;
-const Password=process.env.DB_Password;
 app.listen(port,()=>{
     console.log(`Server is running at the port ${port}`);
-    connection(Username,Password);
 })
 
