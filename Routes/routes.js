@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { checkout,paymentVerification } from "../controllers/paymentController.js";
+import { Checkout,PaymentVerification } from "../controllers/paymentController.js";
 import { Cart, Delete, Login, Product, Products, Signup } from "../controllers/productController.js";
 
 const route=Router();
@@ -12,8 +12,8 @@ route.post("/cart",Cart)
 
 route.delete("/remove/:id",Delete)
 
-route.post("/checkout",checkout);
+route.post("/checkout",Checkout);
 
-route.post("/paymentverification",paymentVerification)
+route.post("/paymentverification",PaymentVerification)
 
 export default route;
