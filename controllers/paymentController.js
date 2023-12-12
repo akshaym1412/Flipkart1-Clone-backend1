@@ -2,7 +2,7 @@ import { instance } from "../index.js";
 import crypto from "crypto";
 import { Payment } from "../database/PaymentSchema.js";
 
-export const checkout = async (req, res) => {
+export const Checkout = async (req, res) => {
   const options = {
     amount: Number(req.body.amount * 100),
     currency: "INR",
@@ -15,7 +15,7 @@ export const checkout = async (req, res) => {
   });
 };
 
-export const paymentVerification = async (req, res) => {
+export const PaymentVerification = async (req, res) => {
   const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
     req.body;
 
